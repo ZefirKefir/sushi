@@ -1,5 +1,6 @@
 const data = {
   sections: {
+    hosomaki: 15916,
     futomaki: 17718,
     uramaki: 23155,
     special: 84813,
