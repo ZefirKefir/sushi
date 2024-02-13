@@ -1,12 +1,34 @@
 import data from "@/public/constants/data";
-import ItemCard from "./ItemCard";
+import { useSelector } from "react-redux";
+import { RootState } from "../(redux)/store";
+import MainTab from "./MainTab";
+import { useEffect } from "react";
 
-const Main = () => {
+
+interface MainProps {
+  search: string;
+};
+const Main = ({ search }: MainProps) => {
+  const { tab } = useSelector((state: RootState) => state.first);
+
+  const rolls = data.rolls;
+  const categorized = tab === 45714 ? rolls : rolls.filter(roll => roll.section === tab);
+
+  const filtered = categorized.filter(roll => roll.name.includes(search));
+
+  const handleScroll = () => {
+    // console.log('scrolled');
+  }
+
+  useEffect(() => {
+
+  }, []);
+
   return (
-    <main className="grow bg-purple-200 overflow-y-scroll hide-scrollbar">
-      <div className="flex flex-col gap-1.5 bg-[#eee] p-3">
-        {data.rolls.map(item => (
-          <ItemCard key={item.name} title={item.name} type={item.section} inside={item.inside} outside={item.outside} feature={item?.feature} />
+    <main className="grow bg-[#eee] h-full overflow-y-hidden hide-scrollbar">
+      <div onScroll={() => handleScroll()} className="section-container w-full h-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory">
+        {data.sections.map(section => (
+          <MainTab key={section.id} id={section.id} search={search} />
         ))}
       </div>
     </main>
