@@ -20,11 +20,12 @@ interface SetCardProps {
 const SetCard = ({ id }: SetCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleClick = (e: Event) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     // alert(e.target.closest('.item-card'))
-    !e.target.closest('.item-card') && setIsOpen(!isOpen);
+    !(e.target as HTMLDivElement).closest('.item-card') && setIsOpen(!isOpen);
     setTimeout(() => {
-      e.target.closest('.set-card').scrollIntoView({ behavior: 'smooth' });
+      const hilt = (e.target as HTMLDivElement).closest('.set-card');
+      hilt && hilt.scrollIntoView({ behavior: 'smooth' });
     }, isOpen ? 200 : 333);
   };
 
