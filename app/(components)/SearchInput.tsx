@@ -18,7 +18,7 @@ const SearchInput = ({ setSearch }: SearchInputProps) => {
     setSearch('');
   };
 
-  const handleEscClick = (e: KeyboardEvent) => {
+  const handleEscClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Escape') {
       resetSearch();
     }
