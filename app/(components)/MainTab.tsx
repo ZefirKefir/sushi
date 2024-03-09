@@ -7,6 +7,9 @@ import ItemCard from "./ItemCard";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 import { setTab } from "../(redux)/(reducers)/FirstSlice";
+import Image from "next/image";
+import images from "@/public/constants/images";
+import SetCard from "./SetCard";
 
 interface MainTabProps {
   id: number;
@@ -15,6 +18,7 @@ interface MainTabProps {
 
 const MainTab = ({ id, search }: MainTabProps) => {
   const { tab } = useSelector((state: RootState) => state.first);
+  const { sort } = useSelector((state: RootState) => state.first);
   const { ref, inView } = useInView({
     threshold: .5,
   });
@@ -23,10 +27,19 @@ const MainTab = ({ id, search }: MainTabProps) => {
   const rolls = data.rolls;
   const categorized = id === 45714 ? rolls : rolls.filter(roll => roll.section === id);
   const filtered = categorized.filter(roll => roll.name.includes(search));
+  const sorted = filtered.sort((a, b) => sort === 'Default' ? a.index - b.index :
+    sort === 'A - Z' ? a.name.localeCompare(b.name) :
+      sort === 'Z - A' ? b.name.localeCompare(a.name) :
+        sort === 'by Popularity' ? b.popularity - a.popularity :
+          sort === 'by Difficulty' ? b.difficulty - a.difficulty :
+            b.index - a.index);
+
+
+  const allSets = data.sets;
+  const sets = allSets.filter(item => item.name.includes(search));
 
   const tabsNodeList: NodeListOf<Element> = document.querySelectorAll('.check');
   const tabs = Array.from(tabsNodeList);
-  console.log(tabs);
 
   const handleChange = (id: number) => {
     tab !== id ? dispatch(setTab(id)) : '';
@@ -39,16 +52,18 @@ const MainTab = ({ id, search }: MainTabProps) => {
 
   return (
     <>
-      <div ref={ref} className={`relative w-full h-full shrink-0 snap-start overflow-y-scroll`}>
+      <div ref={ref} className={`relative p-2 flex flex-col gap-1.5 w-full h-full shrink-0 snap-start overflow-y-scroll`}>
         <input
           type="checkbox"
-          className={`${id} check appearance-none`}
+          className={`${id} absolute check appearance-none`}
           checked={inView}
           onChange={() => alert(id)}
         />
-        {id !== 58103 ? filtered.map(item => (
+        {id !== 58103 ? sorted.map(item => (
           <ItemCard key={item.id} id={item.id} />
-        )) : 'sets'}
+        )) : sets.map(set => (
+          <SetCard key={set.id} id={set.id} />
+        ))}
       </div>
     </>
   );

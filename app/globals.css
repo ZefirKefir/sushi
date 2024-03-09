@@ -10,3 +10,33 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.spec-delay:nth-child(1) {
+  transition-delay: .1s;
+  transition-property: transform;
+}
+
+.spec-delay:nth-child(2) {
+  transition-delay: .125s;
+  transition-property: transform;
+}
+
+.spec-delay:nth-child(3) {
+  transition-delay: .15s;
+  transition-property: transform;
+}
+
+.spec-delay:nth-child(4) {
+  transition-delay: .175s;
+  transition-property: transform;
+}
+
+.spec-delay:nth-child(5) {
+  transition-delay: .2s;
+  transition-property: transform;
+}
+
+.spec-delay:nth-child(6) {
+  transition-delay: .225s;
+  transition-property: transform;
+}

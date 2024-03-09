@@ -2,6 +2,7 @@
 
 import data from "@/public/constants/data";
 import SectionButton from "./SectionButton";
+import { getConrast } from "@/public/composables/getConrast";
 
 const Footer = () => {
   return (

@@ -17,9 +17,9 @@ export default function Home() {
     <div className="App
       flex flex-col h-[100dvh] p-1.5 bg-black
     ">
-      <p className="text-4xl font-bold text-blue-900 fixed top-24 right-20 z-20">
+      {/* <p className="text-4xl font-bold text-blue-900 fixed top-24 right-20 z-20">
         {tab}
-      </p>
+      </p> */}
       <Top setSearch={setSearch} />
       <Main search={search} />
       <Footer />

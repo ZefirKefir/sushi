@@ -8,6 +8,7 @@ export interface firstSlice {
 
 const initialState = {
   tab: 45714,
+  sort: localStorage.getItem('sushiSort') || 'Default',
 };
 
 export const firstSlice = createSlice({
@@ -17,10 +18,13 @@ export const firstSlice = createSlice({
     setTab: (state, action) => {
       state.tab = action.payload;
     },
+    setSort: (state, action) => {
+      state.sort = action.payload;
+    },
   }
 });
 
-export const { setTab } = firstSlice.actions;
+export const { setTab, setSort } = firstSlice.actions;
 
 export default firstSlice.reducer;
 
