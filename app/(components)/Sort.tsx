@@ -16,7 +16,8 @@ const SortOption = ({ children, isOpen }: SortOptionProps) => {
 
   const handleClick = () => {
     dispatch(setSort(children));
-    localStorage.setItem('sushiSort', children)
+    // if localStorage is not undef then put it to localStorage
+    typeof localStorage !== undefined && localStorage.setItem('sushiSort', children);
   }
   return (
     <li className={`w-full rounded spec-delay
@@ -43,8 +44,6 @@ const Sort = () => {
 
   const handleClick = () => {
     setIsOpen(!isOpen);
-    // alert(localStorage.getItem('sushiSort'))
-    // ToDo: localStorage is not working ...
   }
 
   return (

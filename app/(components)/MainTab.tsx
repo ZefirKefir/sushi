@@ -53,8 +53,7 @@ const MainTab = ({ id, search }: MainTabProps) => {
       <div ref={ref} className={`relative p-2 flex flex-col gap-1.5 w-full h-full shrink-0 snap-start overflow-y-scroll`}>
         <input
           type="checkbox"
-          className={`${id} absolute check
-          w-10 h-10 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20`}
+          className={`${id} absolute check appearance-none`}
           checked={inView}
           disabled
         />
