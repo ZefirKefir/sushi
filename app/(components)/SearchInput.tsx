@@ -9,7 +9,7 @@ interface SearchInputProps {
 const SearchInput = ({ setSearch }: SearchInputProps) => {
 
   const handleChange = (e: ChangeEvent) => {
-    setSearch(e.target?.value);
+    setSearch((e.target as HTMLInputElement).value);
   };
 
   const resetSearch = () => {
