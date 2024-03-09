@@ -53,7 +53,7 @@ const SetCard = ({ id }: SetCardProps) => {
           origin-top duration-300 w-full flex gap-x-4 flex-wrap
         `}>
           {set?.composition?.map(roll => (
-            <p className="font-medium text-xl text-gray-600 italic capitalize">
+            <p key={roll.id} className="font-medium text-xl text-gray-600 italic capitalize">
               {data.rolls.find(item => item.id === roll.id)?.name}
               <span className="
                 ml-1.5 inline-block lowercase text-gray-600
