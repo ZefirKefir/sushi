@@ -1,10 +1,7 @@
 'use client';
 
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../(redux)/store";
 import { X } from "lucide-react";
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { setTab } from "../(redux)/(reducers)/FirstSlice";
+import { ChangeEvent } from "react";
 
 interface SearchInputProps {
   setSearch: Function;

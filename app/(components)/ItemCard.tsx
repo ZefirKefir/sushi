@@ -1,18 +1,17 @@
 'use client';
 
-import data from "@/public/constants/data";
-import images from "@/public/constants/images";
-import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import Details from "./Details";
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
+
+import data from "@/public/constants/data";
 
 import { Manrope } from 'next/font/google'
-import { useState } from "react";
-import Details from "./Details";
-
 const manrope = Manrope({
   weight: ['400', '700'],
   subsets: ['latin'],
-})
+});
 
 
 interface ItemCardProps {

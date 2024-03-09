@@ -1,7 +1,7 @@
 'use client';
 
 import { configureStore } from '@reduxjs/toolkit';
-import firstSlice from './(reducers)/FirstSlice';
+import firstSlice from './(reducers)/firstSlice';
 
 export const store = configureStore({
   reducer: {

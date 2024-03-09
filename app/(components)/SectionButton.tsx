@@ -1,12 +1,9 @@
 'use client';
 
-import { getImageSrc } from "@/public/composables/getImageSrc";
 import data from "@/public/constants/data";
 import Image from "next/image";
-import { setTab } from "../(redux)/(reducers)/FirstSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../(redux)/store";
-import { useEffect } from "react";
 
 interface SectionButtonProps {
   id: number;
@@ -34,7 +31,6 @@ const SectionButton = ({ id }: SectionButtonProps) => {
   return (
     <button
       onClick={() => handleClick()}
-      // ToDo: continue
       className={`${tab === id ? 'bg-cyan-950 border-white text-white' : 'bg-white border-cyan-950 text-cyan-950'} border-2 duration-200 ease-in-out
         grow-0 shrink-0 aspect-square p-2 flex flex-col items-center justify-center gap-0.5 rounded`}
     >

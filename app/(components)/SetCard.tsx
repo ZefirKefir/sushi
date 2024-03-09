@@ -7,7 +7,6 @@ import { Manrope } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
 import ItemCard from "./ItemCard";
-import randomizeNigiri from "@/public/composables/randomizeNigiri";
 
 const manrope = Manrope({
   weight: ['500', '700'],
