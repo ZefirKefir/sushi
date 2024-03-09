@@ -46,7 +46,7 @@ const MainTab = ({ id, search }: MainTabProps) => {
   useEffect(() => {
     let className = Number(tabs.find(item => item?.checked)?.className.split(' ')[0]);
     className ? handleChange(className) : '';
-  }, [tabs]);
+  }, [tabs, handleChange]);
 
   return (
     <>
