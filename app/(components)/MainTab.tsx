@@ -45,7 +45,7 @@ const MainTab = ({ id, search }: MainTabProps) => {
 
   useEffect(() => {
     let className = Number(tabs.find(item => item?.checked)?.className.split(' ')[0]);
-    className ? handleChange(className) : '';
+    className && handleChange(className);
   }, [tabs, handleChange]);
 
   return (
@@ -53,9 +53,11 @@ const MainTab = ({ id, search }: MainTabProps) => {
       <div ref={ref} className={`relative p-2 flex flex-col gap-1.5 w-full h-full shrink-0 snap-start overflow-y-scroll`}>
         <input
           type="checkbox"
-          className={`${id} absolute check appearance-none`}
+          className={`${id} absolute check
+          w-10 h-10 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20`}
           checked={inView}
-          onChange={() => alert(id)}
+          disabled
+        // onChange={() => alert(id)}
         />
         {id !== 58103 ? sorted.map(item => (
           <ItemCard key={item.id} id={item.id} />
