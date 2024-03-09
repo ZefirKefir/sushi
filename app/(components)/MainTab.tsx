@@ -6,7 +6,7 @@ import data from "@/public/constants/data";
 import ItemCard from "./ItemCard";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
-import { setTab } from "../(redux)/(reducers)/firstSlice";
+import { setTab } from "@/app/(redux)/(reducers)/firstSlice";
 import SetCard from "./SetCard";
 
 interface MainTabProps {

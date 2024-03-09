@@ -2,9 +2,9 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../(redux)/store";
-import { ArrowDownAZ, ChevronDown } from "lucide-react";
+import { ArrowDownAZ } from "lucide-react";
 import { useState } from "react";
-import { setSort } from "../(redux)/(reducers)/firstSlice";
+import { setSort } from "@/app/(redux)/(reducers)/firstSlice";
 
 interface SortOptionProps {
   children: string;
