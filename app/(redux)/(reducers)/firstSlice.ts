@@ -2,13 +2,14 @@
 
 import { createSlice } from "@reduxjs/toolkit";
 
+
 export interface firstSlice {
   tab: number;
+  sort: string;
 }
-
 const initialState = {
   tab: 45714,
-  sort: localStorage.getItem('sushiSort') || 'Default',
+  sort: window.localStorage.getItem('sushiSort') || 'Default',
 };
 
 export const firstSlice = createSlice({
