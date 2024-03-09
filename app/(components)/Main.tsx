@@ -1,8 +1,9 @@
-import data from "@/public/constants/data";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../(redux)/store";
+
 import MainTab from "./MainTab";
-import { useEffect } from "react";
+import data from "@/public/constants/data";
 
 
 interface MainProps {
