@@ -14,7 +14,7 @@ const SearchInput = ({ setSearch }: SearchInputProps) => {
 
   const resetSearch = () => {
     const input = document.querySelector('.input');
-    input.value = '';
+    (input as HTMLInputElement).value = '';
     setSearch('');
   };
 

@@ -44,7 +44,7 @@ const MainTab = ({ id, search }: MainTabProps) => {
   };
 
   useEffect(() => {
-    let className = Number(tabs.find(item => item?.checked)?.className.split(' ')[0]);
+    let className = Number(tabs.find(item => (item as HTMLInputElement).checked)?.className.split(' ')[0]);
     className && handleChange(className);
   }, [tabs, handleChange]);
 
@@ -57,7 +57,6 @@ const MainTab = ({ id, search }: MainTabProps) => {
           w-10 h-10 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20`}
           checked={inView}
           disabled
-        // onChange={() => alert(id)}
         />
         {id !== 58103 ? sorted.map(item => (
           <ItemCard key={item.id} id={item.id} />
