@@ -3,7 +3,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../(redux)/store";
 import { ArrowDownAZ } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { setSort } from "@/app/(redux)/(reducers)/firstSlice";
 
 interface SortOptionProps {
@@ -16,9 +16,13 @@ const SortOption = ({ children, isOpen }: SortOptionProps) => {
 
   const handleClick = () => {
     dispatch(setSort(children));
-    // if localStorage is not undef then put it to localStorage
     typeof localStorage !== undefined && localStorage.setItem('sushiSort', children);
   }
+
+  useEffect(() => {
+    dispatch(setSort(localStorage.getItem('sushiSort') || 'Default'));
+  }, [sort]);
+
   return (
     <li className={`w-full rounded spec-delay
       ${sort === children ? 'font-medium text-sky-200 bg-white/10' : 'text-white'} font-inherit

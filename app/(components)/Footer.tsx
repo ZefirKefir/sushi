@@ -1,7 +1,11 @@
 'use client';
 
 import data from "@/public/constants/data";
-import SectionButton from "./SectionButton";
+import dynamic from "next/dynamic";
+
+const DynamicSectionButton = dynamic(() => import('./SectionButton'), {
+  ssr: false,
+});
 
 const Footer = () => {
   return (
@@ -11,9 +15,11 @@ const Footer = () => {
       flex md:justify-center gap-1.5 md:gap-3
       overflow-scroll hide-scrollbar
     ">
-      {data.sections.map(section => (
-        <SectionButton key={section.id} id={section.id} />
-      ))}
+      <>
+        {data.sections.map(section => (
+          <DynamicSectionButton key={section.id} id={section.id} />
+        ))}
+      </>
     </footer>
   );
 }

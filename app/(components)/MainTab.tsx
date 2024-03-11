@@ -44,7 +44,6 @@ const MainTab = ({ id, search }: MainTabProps) => {
 
   const handleChange = (id: number) => {
     tab !== id ? dispatch(setTab(id)) : '';
-    // alert(tabs[1])
   };
 
   useEffect(() => {

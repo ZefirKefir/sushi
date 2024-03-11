@@ -1,7 +1,12 @@
 'use client'
 
-import SearchInput from "./SearchInput";
+import dynamic from "next/dynamic";
 import Sort from "./Sort";
+
+
+const DynamicSearchInput = dynamic(() => import('./SearchInput'), {
+  ssr: false,
+});
 
 interface TopProps {
   setSearch: Function;
@@ -9,7 +14,8 @@ interface TopProps {
 const Top = ({ setSearch }: TopProps) => {
   return (
     <nav className="h-28 py-2 px-3 rounded-t bg-cyan-900 flex items-center justify-between">
-      <SearchInput setSearch={setSearch} />
+      <DynamicSearchInput setSearch={setSearch} />
+      <span className="opacity-0 w-0 h-0" />
       <Sort />
     </nav>
   );

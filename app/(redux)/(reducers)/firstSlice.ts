@@ -8,7 +8,7 @@ export interface firstSlice {
 }
 const initialState = {
   tab: 45714,
-  sort: typeof window !== 'undefined' ? window.localStorage.getItem('sushiSort') : 'Default',
+  sort: 'loading...',
 };
 
 export const firstSlice = createSlice({

@@ -11,23 +11,21 @@ interface SectionButtonProps {
 
 const SectionButton = ({ id }: SectionButtonProps) => {
   const { tab } = useSelector((state: RootState) => state.first);
-  const dispatch = useDispatch();
 
-  const width = window.innerWidth;
   const section = data.sections.find(section => section.id === id) || data.sections[0];
 
   const handleClick = () => {
+    const cont = document.querySelector('.section-container');
+    const width = window.innerWidth;
     let idx;
+
     data.sections.map((section, index) => section.id === id ? idx = index : '');
 
-    if (typeof window !== 'undefined') {
-      const cont = document.querySelector('.section-container');
-      cont?.scrollTo({
-        top: 0,
-        left: idx ? idx * width : 0,
-        behavior: 'smooth',
-      });
-    }
+    cont?.scrollTo({
+      top: 0,
+      left: idx ? idx * width : 0,
+      behavior: 'smooth',
+    });
   };
 
   return (
