@@ -1,3 +1,5 @@
+'use client'
+
 import SearchInput from "./SearchInput";
 import Sort from "./Sort";
 
