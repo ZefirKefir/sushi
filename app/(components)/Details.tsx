@@ -3,7 +3,6 @@
 import Ingredient from "./Ingredient";
 import data from "@/public/constants/data";
 import { useRef } from "react";
-import { getConrast } from "@/public/composables/getConrast";
 
 interface DetailsProps {
   id: number;
@@ -17,7 +16,10 @@ const Details = ({ id, isOpen, className = '' }: DetailsProps) => {
   const ref = useRef();
   // ToDo: spin animate;
   // ToDo: continue;
-  let height = document.getElementById(id.toString())?.offsetHeight;
+  let height = 24;
+  if (typeof window !== undefined) {
+    height = document.getElementById(id.toString())?.offsetHeight || 0;
+  }
   return (
     <div className={
       `${className} flex flex-col ${isOpen ? 'justify-end' : 'justify-center'}
