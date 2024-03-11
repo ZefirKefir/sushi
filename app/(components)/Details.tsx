@@ -18,7 +18,7 @@ const Details = ({ id, isOpen, className = '' }: DetailsProps) => {
   // ToDo: continue;
   let height = 24;
   if (typeof window !== undefined) {
-    height = document.getElementById(id.toString())?.offsetHeight || 0;
+    height = window.document.getElementById(id.toString())?.offsetHeight || 0;
   }
   return (
     <div className={
