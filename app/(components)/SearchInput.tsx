@@ -13,8 +13,10 @@ const SearchInput = ({ setSearch }: SearchInputProps) => {
   };
 
   const resetSearch = () => {
-    const input = document.querySelector('.input');
-    (input as HTMLInputElement).value = '';
+    if (typeof window !== 'undefined') {
+      const input = document.querySelector('.input');
+      (input as HTMLInputElement).value = '';
+    }
     setSearch('');
   };
 

@@ -20,12 +20,14 @@ const SectionButton = ({ id }: SectionButtonProps) => {
     let idx;
     data.sections.map((section, index) => section.id === id ? idx = index : '');
 
-    const cont = document.querySelector('.section-container');
-    cont?.scrollTo({
-      top: 0,
-      left: idx ? idx * width : 0,
-      behavior: 'smooth',
-    });
+    if (typeof window !== 'undefined') {
+      const cont = document.querySelector('.section-container');
+      cont?.scrollTo({
+        top: 0,
+        left: idx ? idx * width : 0,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (

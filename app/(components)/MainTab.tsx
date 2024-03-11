@@ -36,15 +36,19 @@ const MainTab = ({ id, search }: MainTabProps) => {
   const allSets = data.sets;
   const sets = allSets.filter(item => item.name.includes(search));
 
-  const tabsNodeList: NodeListOf<Element> = document.querySelectorAll('.check');
-  const tabs = Array.from(tabsNodeList);
+  let tabs: Element[] | undefined = undefined;
+  if (typeof window !== 'undefined') {
+    const tabsNodeList: NodeListOf<Element> = window.document.querySelectorAll('.check');
+    tabs = Array.from(tabsNodeList);
+  }
 
   const handleChange = (id: number) => {
     tab !== id ? dispatch(setTab(id)) : '';
+    // alert(tabs[1])
   };
 
   useEffect(() => {
-    let className = Number(tabs.find(item => (item as HTMLInputElement).checked)?.className.split(' ')[0]);
+    let className = Number(tabs?.find(item => (item as HTMLInputElement).checked)?.className.split(' ')[0]);
     className && handleChange(className);
   }, [tabs, handleChange]);
 

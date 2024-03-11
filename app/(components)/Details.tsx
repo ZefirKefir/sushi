@@ -17,9 +17,9 @@ const Details = ({ id, isOpen, className = '' }: DetailsProps) => {
   // ToDo: spin animate;
   // ToDo: continue;
   let height = 24;
-  // if (typeof window !== 'undefined') {
-  //   height = window.document.getElementById(id.toString())?.offsetHeight || 0;
-  // }
+  if (typeof window !== 'undefined') {
+    height = window.document.getElementById(id.toString())?.offsetHeight || 0;
+  }
   return (
     <div className={
       `${className} flex flex-col ${isOpen ? 'justify-end' : 'justify-center'}
