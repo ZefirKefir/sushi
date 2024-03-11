@@ -1,3 +1,5 @@
+'use client';
+
 import Ingredient from "./Ingredient";
 import data from "@/public/constants/data";
 import { useRef } from "react";
