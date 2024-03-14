@@ -53,13 +53,13 @@ const Sort = () => {
   return (
     <div
       onClick={handleClick}
-      className="relative w-44"
+      className="relative w-44 ml-1.5"
     >
       <button
         onClick={handleClick}
         className="w-full px-4 py-2 flex items-center justify-between gap-2 rounded bg-white/20"
       >
-        <span className="font-inherit font-medium text-lg text-white">
+        <span className="font-inherit font-medium text-base md:text-lg text-white">
           {sort}
         </span>
         <ArrowDownAZ className="text-white" />

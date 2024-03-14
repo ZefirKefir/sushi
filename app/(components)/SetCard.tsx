@@ -3,15 +3,15 @@
 import data from "@/public/constants/data";
 import images from "@/public/constants/images";
 import { ChevronDown } from "lucide-react";
-import { Manrope } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
 import ItemCard from "./ItemCard";
 
-const manrope = Manrope({
-  weight: ['500', '700'],
+import { Poppins } from "next/font/google";
+const poppins = Poppins({
+  weight: ['400', '500', '600'],
   subsets: ['latin'],
-})
+});
 
 interface SetCardProps {
   id: number;
@@ -42,9 +42,9 @@ const SetCard = ({ id }: SetCardProps) => {
       </div>
       {/* block */}
       <div className="relative grow flex flex-col gap-1 w-[85%] min-h-16">
-        <h3 className={`${manrope.className}
+        <h3 className={`${poppins.className}
           absolute top-2 left-0
-          duration-200 capitalize font-bold text-2xl tracking-wide
+          duration-200 capitalize font-medium text-2xl tracking-wide
         `}>
           {set?.name}
         </h3>
@@ -53,7 +53,7 @@ const SetCard = ({ id }: SetCardProps) => {
           origin-top duration-300 w-full flex gap-x-4 flex-wrap
         `}>
           {set?.composition?.map(roll => (
-            <p key={roll.id} className="font-medium text-xl text-gray-600 italic capitalize">
+            <p key={roll.id} className="font-normal text-lg text-gray-600 italic capitalize">
               {data.rolls.find(item => item.id === roll.id)?.name}
               <span className="
                 ml-1.5 inline-block lowercase text-gray-600

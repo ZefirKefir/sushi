@@ -11,7 +11,7 @@ const Footer = () => {
   return (
     <footer className="
       h-40
-      py-2 px-3 rounded-b bg-cyan-900
+      py-2 px-3 bg-cyan-900
       flex md:justify-center gap-1.5 md:gap-3
       overflow-scroll hide-scrollbar
     ">

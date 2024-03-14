@@ -7,9 +7,9 @@ import { ChevronDown } from "lucide-react";
 
 import data from "@/public/constants/data";
 
-import { Manrope } from 'next/font/google'
-const manrope = Manrope({
-  weight: ['400', '700'],
+import { Poppins } from 'next/font/google';
+const poppins = Poppins({
+  weight: ['400', '500'],
   subsets: ['latin'],
 });
 
@@ -26,7 +26,7 @@ const ItemCard = ({ id, className = '', amount = 0 }: ItemCardProps) => {
 
   return (
     <div onClick={() => setIsOpen(!isOpen)} className={`item-card w-full relative
-      px-3 ${isOpen ? 'pt-3 pb-4 max-h-52' : 'pt-1.5 pb-2 max-h-20'} duration-200 ease-in-out
+      px-3 ${isOpen ? 'pt-3 pb-4 max-h-80' : 'pt-1.5 pb-2 max-h-20'} duration-200 ease-in-out
       bg-white shadow-xl rounded flex items-center justify-between gap-4 cursor-pointer
       ${className} 
     `}>
@@ -36,16 +36,15 @@ const ItemCard = ({ id, className = '', amount = 0 }: ItemCardProps) => {
       </div>
       {/* block */}
       <div className={`duration-200 grow`}>
-        <h3 className={`${manrope.className} ${isOpen ? '' : 'delay-100'} duration-200
+        <h3 className={`${poppins.className} ${isOpen ? '' : 'delay-100'} duration-200
           absolute ${isOpen ? 'top-3' : 'top-1/2 -translate-y-1/2'}
-          capitalize font-bold text-2xl tracking-wide
+          capitalize font-medium text-lg sm:text-xl md:text-2xl sm:tracking-wide md:tracking-wide
         `}>
           {roll.name}
           {/* amount */}
-          {/* remove that later */}
           <span className={`${amount !== 0 ? 'block' : 'hidden'}
-            absolute top-1/2 -translate-y-1/2 -right-5 translate-x-full
-            font-normal text-xl text-gray-600 italic lowercase whitespace-nowrap
+            absolute top-1/2 -translate-y-1/2 -right-3 translate-x-full
+            font-normal text-lg text-gray-600 italic lowercase whitespace-nowrap
           `}>
             {amount} pcs
           </span>

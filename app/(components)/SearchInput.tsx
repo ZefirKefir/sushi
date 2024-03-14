@@ -33,7 +33,7 @@ const SearchInput = ({ setSearch }: SearchInputProps) => {
         onChange={e => handleChange(e)}
         onKeyDown={e => handleEscClick(e)}
         placeholder="Search for rolls..."
-        className="input peer py-2 px-1 h-full font-medium tracking-wider text-cyan-900 placeholder:font-normal placeholder:text-cyan-800/70 placeholder:text-sm placeholder:tracking-wide outline-none"
+        className="input peer py-2.5 px-1 max-w-40 md:max-w-60 h-full font-medium tracking-wider text-cyan-900 placeholder:font-normal placeholder:text-cyan-800/70 placeholder:text-sm placeholder:tracking-wide outline-none"
       />
       {/* outline */}
       <span className="rounded
