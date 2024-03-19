@@ -37,7 +37,7 @@ const SetCard = ({ id }: SetCardProps) => {
       duration-1000
     `}>
       {/* image */}
-      <div className="shrink-0 w-16 aspect-square relative bg-cyan-600/30 flex items-center justify-center rounded-full">
+      <div className={`${isOpen ? 'scale-x-0 md:scale-x-100 opacity-0 md:opacity-100 max-w-0 md:max-w-20' : 'scale-x-100 opacity-100 max-w-20'} duration-300 shrink-0 w-16 aspect-square relative bg-cyan-600/30 flex items-center justify-center rounded-full`}>
         <Image src={images.sets} alt='alt' layout="cover" className="w-2/3" />
       </div>
       {/* block */}
