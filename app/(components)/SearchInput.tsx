@@ -9,7 +9,7 @@ interface SearchInputProps {
 const SearchInput = ({ setSearch }: SearchInputProps) => {
 
   const handleChange = (e: ChangeEvent) => {
-    setSearch((e.target as HTMLInputElement).value);
+    setSearch((e.target as HTMLInputElement).value.toLowerCase());
   };
 
   const resetSearch = () => {
@@ -44,7 +44,7 @@ const SearchInput = ({ setSearch }: SearchInputProps) => {
 
       <X
         onClick={resetSearch}
-        className="pr-2 w-full text-cyan-950 cursor-pointer"
+        className="pr-2 w-8 text-cyan-950 cursor-pointer"
       />
     </div>
   );

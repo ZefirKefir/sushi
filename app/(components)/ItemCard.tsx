@@ -25,8 +25,8 @@ const ItemCard = ({ id, className = '', amount = 0 }: ItemCardProps) => {
   const roll = data.rolls.find(roll => roll.id === id) || data.rolls[0];
 
   return (
-    <div onClick={() => setIsOpen(!isOpen)} className={`item-card w-full relative
-      px-3 ${isOpen ? 'pt-3 pb-4 max-h-80' : 'pt-1.5 pb-2 max-h-20'} duration-200 ease-in-out
+    <div onClick={() => setIsOpen(!isOpen)} className={`item-card z-10 w-full relative
+      px-3 ${isOpen ? 'pt-3 pb-4 max-h-[25rem]' : 'pt-1.5 pb-2 max-h-20'} duration-200 ease-in-out
       bg-white shadow-xl rounded flex items-center justify-between gap-4 cursor-pointer
       ${className} 
     `}>
@@ -52,7 +52,7 @@ const ItemCard = ({ id, className = '', amount = 0 }: ItemCardProps) => {
         <Details id={id} isOpen={isOpen} />
       </div>
       {/* button */}
-      <button className="w-9 aspect-square bg-cyan-600/30 flex items-center justify-center rounded-full">
+      <button className="w-9 shrink-0 aspect-square bg-cyan-600/30 flex items-center justify-center rounded-full">
         <ChevronDown className={`${isOpen ? '-scale-y-100' : ''} duration-300`} />
       </button>
     </div>

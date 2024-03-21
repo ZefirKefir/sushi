@@ -21,11 +21,11 @@ const SetCard = ({ id }: SetCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    // alert(e.target.closest('.item-card'))
     !(e.target as HTMLDivElement).closest('.item-card') && setIsOpen(!isOpen);
     setTimeout(() => {
+      const target = (e.target as HTMLDivElement).closest('.item-card');
       const hilt = (e.target as HTMLDivElement).closest('.set-card');
-      hilt && hilt.scrollIntoView({ behavior: 'smooth' });
+      hilt && !target && hilt.scrollIntoView({ behavior: 'smooth' });
     }, isOpen ? 200 : 333);
   };
 
@@ -66,15 +66,16 @@ const SetCard = ({ id }: SetCardProps) => {
         </div>
         {/* open */}
         <div className={`${isOpen ? 'delay-[.2s] scale-y-100 opacity-100 pt-12 max-h-[40rem]' : 'scale-y-0 opacity-0 max-h-0'}
-          origin-top duration-300 w-full flex flex-col gap-1
+          origin-top duration-300 w-full flex flex-col gap-1 bg-black/50
         `}>
           {set?.composition?.map(roll => (
+            // <p>chuj</p>
             <ItemCard key={roll.id} id={roll.id} amount={roll.amount} />
           ))}
         </div>
       </div>
       {/* button */}
-      <button className="w-9 aspect-square bg-cyan-600/30 flex items-center justify-center rounded-full">
+      <button className="w-9 shrink-0 aspect-square bg-cyan-600/30 flex items-center justify-center rounded-full">
         <ChevronDown className={`${isOpen ? '-scale-y-100' : ''} duration-300`} />
       </button>
     </div>
