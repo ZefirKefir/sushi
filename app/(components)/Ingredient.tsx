@@ -18,7 +18,7 @@ const Ingredient = ({ id }: IngredientProps) => {
   const fac = new FastAverageColor();
   const ingredient = data.ingredients.find(ing => ing.id === id);
 
-  const imgElem: HTMLImageElement = document.querySelector('.ing-' + id.toString());
+  const imgElem: HTMLImageElement = document.querySelector('.ing-' + id.toString()) || document.createElement(img);
   const color = fac.getColor(imgElem);
 
   return (
