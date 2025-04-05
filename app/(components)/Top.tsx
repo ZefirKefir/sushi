@@ -12,8 +12,9 @@ interface TopProps {
   setSearch: Function;
 };
 const Top = ({ setSearch }: TopProps) => {
+  const cat = 'cyan';
   return (
-    <nav className="h-28 py-2 px-3 bg-cyan-900 flex items-center justify-between">
+    <nav className={`h-28 py-2 px-3 bg-${cat}-900 flex items-center justify-between`}>
       <DynamicSearchInput setSearch={setSearch} />
       <span className="opacity-0 w-0 h-0" />
       <Sort />

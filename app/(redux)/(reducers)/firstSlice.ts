@@ -7,8 +7,8 @@ export interface firstSlice {
   sort: string;
 }
 const initialState = {
-  tab: 45714,
-  sort: 'loading...',
+  tab: typeof localStorage.getItem('tab') !== undefined ? Number(localStorage.getItem('tab')) : 45714,
+  sort: typeof localStorage.getItem('sushiSort') !== undefined ? localStorage.getItem('sushiSort') : 'loading...',
 };
 
 export const firstSlice = createSlice({

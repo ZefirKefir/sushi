@@ -19,9 +19,9 @@ const SortOption = ({ children, isOpen }: SortOptionProps) => {
     typeof localStorage !== undefined && localStorage.setItem('sushiSort', children);
   }
 
-  useEffect(() => {
-    dispatch(setSort(localStorage.getItem('sushiSort') || 'Default'));
-  }, [sort]);
+  // useEffect(() => {
+  //   dispatch(setSort(localStorage.getItem('sushiSort') || 'Default'));
+  // }, [sort]);
 
   return (
     <li className={`w-full rounded spec-delay
@@ -57,12 +57,15 @@ const Sort = () => {
     >
       <button
         onClick={handleClick}
-        className="w-full px-4 py-2 flex items-center justify-between gap-2 rounded bg-white/20"
+        className={`
+          w-full px-4 py-2 flex items-center justify-between gap-2 rounded
+          ${isOpen ? 'bg-white/10' : 'bg-white/20 hover:bg-white/30'} duration-300
+          `}
       >
-        <span className="font-inherit font-medium text-base md:text-lg text-white">
+        <span className="font-inherit font-medium text-base md:text-lg text-white whitespace-nowrap">
           {sort}
         </span>
-        <ArrowDownAZ className="text-white" />
+        <ArrowDownAZ className="text-white hidden xs:inline" />
       </button>
       {/* menu */}
       <ul className={`absolute w-full top-12 left-1/2 -translate-x-1/2

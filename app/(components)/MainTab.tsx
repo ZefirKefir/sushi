@@ -43,7 +43,10 @@ const MainTab = ({ id, search }: MainTabProps) => {
   }
 
   const handleChange = (id: number) => {
-    tab !== id ? dispatch(setTab(id)) : '';
+    if (tab !== id) {
+      dispatch(setTab(id));
+      localStorage.setItem('tab', id.toString());
+    };
   };
 
   useEffect(() => {

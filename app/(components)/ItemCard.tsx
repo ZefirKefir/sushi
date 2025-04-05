@@ -25,20 +25,22 @@ const ItemCard = ({ id, className = '', amount = 0 }: ItemCardProps) => {
   const roll = data.rolls.find(roll => roll.id === id) || data.rolls[0];
 
   return (
-    <div onClick={() => setIsOpen(!isOpen)} className={`item-card z-10 w-full relative
+    <div onClick={() => setIsOpen(!isOpen)}
+      className={`item-card w-full relative
       px-3 ${isOpen ? 'pt-3 pb-4 max-h-[25rem]' : 'pt-1.5 pb-2 max-h-20'} duration-200 ease-in-out
       bg-white shadow-xl rounded flex items-center justify-between gap-4 cursor-pointer
       ${className} 
     `}>
       {/* image */}
-      <div className="shrink-0 w-16 aspect-square relative bg-cyan-600/30 flex items-center justify-center rounded-full">
+      <div className={`${amount ? 'hidden sm:flex' : 'flex'} shrink-0 w-16 aspect-square relative bg-cyan-600/30 items-center justify-center rounded-full`}>
         <Image src={roll.src} alt='alt' layout="cover" className="w-2/3" />
       </div>
       {/* block */}
       <div className={`duration-200 grow`}>
         <h3 className={`${poppins.className} ${isOpen ? '' : 'delay-100'} duration-200
           absolute ${isOpen ? 'top-3' : 'top-1/2 -translate-y-1/2'}
-          capitalize font-medium text-lg sm:text-xl md:text-2xl sm:tracking-wide md:tracking-wide
+          capitalize font-medium text-lg leading-none sm:text-xl md:text-2xl sm:tracking-wide md:tracking-wide
+          sm:max-w-full whitespace-break-spaces shrink
         `}>
           {roll.name}
           {/* amount */}
@@ -46,7 +48,13 @@ const ItemCard = ({ id, className = '', amount = 0 }: ItemCardProps) => {
             absolute top-1/2 -translate-y-1/2 -right-3 translate-x-full
             font-normal text-lg text-gray-600 italic lowercase whitespace-nowrap
           `}>
-            {amount} pcs
+            <span className="xs:hidden">
+              x{' '}
+            </span>
+            <span>
+              {amount}
+            </span>
+            <span className="hidden xs:inline"> pcs</span>
           </span>
         </h3>
         <Details id={id} isOpen={isOpen} />
